@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Hotel_ReservationAndManagement.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,5 +24,20 @@ namespace Hotel_ReservationAndManagement
 
         }
 
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var conn = DatabaseConnection.GetConnection())
+                {
+                    MessageBox.Show("Connected to MySQL successfully!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Connection failed: " + ex.Message);
+            }
+
+        }
     }
 }
